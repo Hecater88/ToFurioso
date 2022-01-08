@@ -12,7 +12,7 @@ namespace EventBus
             );
         }
         void OnDisable(){
-            RaceEventBus.Subscribe(
+            RaceEventBus.Unsubscribe(
                 RaceEventType.START, DisplayHUD
             );
         }

@@ -17,16 +17,12 @@ namespace EventBus
 
         void OnEnable()
         {
-            RaceEventBus.Subscribe(
-                RaceEventType.STOP, Restart
-            );
+            RaceEventBus.Subscribe(RaceEventType.STOP, Restart);
         }
 
         void OnDisable()
         {
-            RaceEventBus.Unsubscribe(
-                RaceEventType.STOP, Restart
-            );
+            RaceEventBus.Unsubscribe(RaceEventType.STOP, Restart);
         }
 
         private void Restart()
