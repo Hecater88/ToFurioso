@@ -3,27 +3,28 @@ using System.Collections;
 
 namespace Observer
 {
-    public class Subject : MonoBehaviour
+    public abstract class Subject : MonoBehaviour
     {
         private readonly ArrayList _observers = new ArrayList();
-    }
 
-    public void Attach(Observer observer)
-    {
-        _observers.Add(observer);
-    }
-
-    public void Detach(Observer observer)
-    {
-        _observers.Remove(observer);
-    }
-
-    public void NotifyObservers()
-    {
-        foreach (Observer observer in _observers)
+        protected void Attach(Observer observer)
         {
-            observer.Notify(this);
+            _observers.Add(observer);
+        }
+
+        protected void Detach(Observer observer)
+        {
+            _observers.Remove(observer);
+        }
+
+        protected void NotifyObservers()
+        {
+            foreach (Observer observer in _observers)
+            {
+                observer.Notify(this);
+            }
         }
     }
+
 }
 
